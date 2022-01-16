@@ -91,6 +91,25 @@ public class KeKhaiGiangDay {
             }
         }
     }
+
+    public void sxTietGiangDay()
+    {
+        for (int i = 0; i < lichDays.length; i++) {
+            MONHOCS = lichDays[i].getMonHocs();
+            MonHoc tem = new MonHoc();
+            for (int j = 0; j < lichDays[i].getMonHocs().length -1; j++) {
+                for (int k = j+1; k < lichDays[i].getMonHocs().length; k++) {
+                    if(MONHOCS[j].getTongSoTiet() < MONHOCS[k].getTongSoTiet())
+                    {
+                        tem = MONHOCS[j];
+                        MONHOCS[j] = MONHOCS[k];
+                        MONHOCS[k] = tem;
+                    }
+                }
+            }
+        }
+    }
+
     public void tinhLuong(){
         for(int i = 0; i < lichDays.length; i++){
             System.out.println(lichDays[i].gv);
@@ -98,7 +117,7 @@ public class KeKhaiGiangDay {
             int[] solops = lichDays[i].getSolops();
             double total = 0.0;
             for(int j = 0; j < lichDays[i].getMonHocs().length; j++ ){
-                total = total + (MONHOCS[j].getTongSoTiet() - MONHOCS[j].getTietLyThuyet()) * MONHOCS[j].getMucKinhPhi() * 0.7 + MONHOCS[j].getTietLyThuyet() * MONHOCS[j].getMucKinhPhi() * solops[j];
+                total = total + MONHOCS[j].getMucKinhPhi()  * solops[j];
             }
             System.out.println("Lương: " + total + " đồng.");
         }

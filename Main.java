@@ -32,12 +32,19 @@ public class Main {
             }
             else if(n == 2)
             {
-                System.out.println("Danh sách môn học: ");
-                for (int i=0; i< monHocs.length;i++)
+                if(monHocs[0] != null)
                 {
-                    if(monHocs[i] !=null)
-                        System.out.println(monHocs[i].toString());
+                    System.out.println("Danh sách môn học: ");
+                    for (int i=0; i< monHocs.length;i++)
+                    {
+                        if(monHocs[i] !=null)
+                            System.out.println(monHocs[i].toString());
+                    }
                 }
+                else {
+                    System.out.println("Chưa có môn học nào được thêm!");
+                }
+
             }
             else if(n == 3)
             {
@@ -85,21 +92,49 @@ public class Main {
             }
             else if(n ==4)
             {
-                System.out.println("Danh sách giảng viên: ");
-                for (int i=0; i< giangViens.length;i++)
+                if(giangViens[0] != null)
                 {
-                    if(giangViens[i] !=null)
-                        System.out.println(giangViens[i].toString());
+                    System.out.println("Danh sách giảng viên: ");
+                    for (int i=0; i< giangViens.length;i++)
+                    {
+                        if(giangViens[i] !=null)
+                            System.out.println(giangViens[i].toString());
+                    }
                 }
+                else {
+                    System.out.println("Chưa có giảng viên nào được thêm!");
+                }
+
             }
             else if(n == 5)
             {
-                k.nhapKeHoachGiangDay(giangViens,monHocs);
+                if(monHocs[0] != null && giangViens[0] != null)
+                {
+                    k.nhapKeHoachGiangDay(giangViens,monHocs);
+                }
+
             }
             else if( n== 6)
             {
-                k.sxTenGiangVien();
+                if(monHocs[0] != null && giangViens[0] != null)
+                {
+                    k.sxTenGiangVien();
+                    k.showLich(giangViens);
+                }
+
+            }
+            else if(n == 7)
+            {
+                k.sxTietGiangDay();
                 k.showLich(giangViens);
+            }
+            else if(n == 8)
+            {
+                if(monHocs[0] != null && giangViens[0] != null)
+                {
+                    k.tinhLuong();
+                    k.showLich(giangViens);
+                }
             }
         }while (n!=0);
     }
@@ -111,8 +146,9 @@ public class Main {
         System.out.println("3. Thêm giảng viên mới");
         System.out.println("4. Hiển thị danh sách giảng viên");
         System.out.println("5. Nhập và hiển thị bảng kê khai giảng dạy cho giảng viên");
-        System.out.println("6. Sắp xếp danh sách kê khai giảng dạy");
-        System.out.println("7. Thanh toán và lập bảng tính tiền cho mỗi giáo viên");
+        System.out.println("6. Sắp xếp danh sách kê khai giảng dạy theo tên (a->z)");
+        System.out.println("7. Sắp xếp theo số tiết dạy giảm dần");
+        System.out.println("8. Thanh toán và lập bảng tính tiền cho mỗi giáo viên");
         System.out.println("0. Thoát");
     }
 }
